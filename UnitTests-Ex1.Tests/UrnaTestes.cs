@@ -112,12 +112,18 @@ namespace UnitTests_Ex1.Tests
         {
             //Arrange
             var urna = new Urna();
-            var name = "Fulano da Silva";
-            var resultadoEsperado = "Nome vencedor: Fulano da Silva. Votos: 1";
+            var nome1 = "Fulano da Silva";
+            var nome2 = "Ciclano Moreira";
+            var resultadoEsperado = $"Nome vencedor: {nome2}. Votos: 2";
 
             //Act
-            urna.CadastrarCandidato(name);
-            urna.Votar(name);
+            urna.CadastrarCandidato(nome1);
+            urna.CadastrarCandidato(nome2);
+
+            urna.Votar(nome1);
+            urna.Votar(nome2);
+            urna.Votar(nome2);
+
             var resultado = urna.MostrarResultadoEleicao();
 
             //Assert

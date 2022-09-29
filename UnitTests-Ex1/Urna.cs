@@ -53,7 +53,7 @@ public class Urna
 
     public string MostrarResultadoEleicao()
     {
-        var vencedor = Candidatos.OrderBy(c => c.RetornarVotos()).ThenBy(c => c.Nome).FirstOrDefault();
+        var vencedor = Candidatos.OrderByDescending(c => c.RetornarVotos()).ThenBy(c => c.Nome).FirstOrDefault();
 
         return $"Nome vencedor: {vencedor.Nome}. Votos: {vencedor.Votos}";
     }
